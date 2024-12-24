@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 24/12/2024 22:15:56
+ Date: 25/12/2024 00:39:47
 */
 
 SET NAMES utf8mb4;
@@ -34,6 +34,7 @@ CREATE TABLE `result_certificateinfo`  (
                                            `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                            `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                            `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                           `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                            PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '档案资料上传表' ROW_FORMAT = Dynamic;
 
@@ -58,6 +59,7 @@ CREATE TABLE `result_continuing_education_material`  (
                                                          `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                                          `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                                          `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                                         `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                                          PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '继续教育材料' ROW_FORMAT = Dynamic;
 
@@ -87,6 +89,7 @@ CREATE TABLE `result_copyright`  (
                                      `project_id` int(0) NULL DEFAULT NULL COMMENT '关联课题ID',
                                      `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                      `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                     `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                      PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '软件著作权' ROW_FORMAT = Dynamic;
 
@@ -110,6 +113,7 @@ CREATE TABLE `result_other`  (
                                  `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                  `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                  `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                 `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '其他上传表' ROW_FORMAT = Dynamic;
 
@@ -148,16 +152,17 @@ CREATE TABLE `result_papers`  (
                                   `sync_status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '成功同步',
                                   `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                   `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
+                                  `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '关联用户id',
                                   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '论文表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of result_papers
 -- ----------------------------
-INSERT INTO `result_papers` VALUES (17, '11', '学位论文', NULL, 3, NULL, '11111', '[\"SSCI\", \"自然指数杂志\"]', '2024-10-16 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"121\", \"rank\": 1, \"identity\": \"老师\", \"institution\": \"212\", \"coFirstAuthor\": false, \"corresponding\": false}, {\"name\": \"1\", \"rank\": 2, \"identity\": \"博士生\", \"institution\": \"11\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-24 21:26:44');
-INSERT INTO `result_papers` VALUES (23, '121', '会议论文集', NULL, 1, NULL, '1212', '[\"SSCI\", \"ESCI\", \"CPCI-SSH (ISSHP)\"]', '2024-10-19 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"\", \"rank\": null, \"identity\": \"\", \"institution\": \"\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-24 21:26:44');
-INSERT INTO `result_papers` VALUES (24, '12', '会议论文集', NULL, 2, NULL, '123', '[\"SCIE\", \"SSCI\"]', '2024-10-01 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"\", \"rank\": null, \"identity\": \"\", \"institution\": \"\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-24 21:26:44');
-INSERT INTO `result_papers` VALUES (41, '21111111111111111', '会议论文集', NULL, 1, NULL, '2', '[\"SSCI\",\"SCIE\"]', '2024-11-21 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"rank\":1,\"name\":\"1\",\"identity\":\"博士生\",\"institution\":\"1\",\"corresponding\":false,\"coFirstAuthor\":false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'c25e9e9f-f056-4750-a8be-d62685fa9b26.pdf', NULL, '2024-12-24 21:26:44', '2024-12-24 21:26:44');
+INSERT INTO `result_papers` VALUES (17, '11', '学位论文', NULL, 3, NULL, '11111', '[\"SSCI\", \"自然指数杂志\"]', '2024-10-16 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"121\", \"rank\": 1, \"identity\": \"老师\", \"institution\": \"212\", \"coFirstAuthor\": false, \"corresponding\": false}, {\"name\": \"1\", \"rank\": 2, \"identity\": \"博士生\", \"institution\": \"11\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-25 00:30:41', 'b0f8549f-2ee0-451d-8a29-4cde92d20951');
+INSERT INTO `result_papers` VALUES (23, '121', '会议论文集', NULL, 1, NULL, '1212', '[\"SSCI\", \"ESCI\", \"CPCI-SSH (ISSHP)\"]', '2024-10-19 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"\", \"rank\": null, \"identity\": \"\", \"institution\": \"\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-25 00:30:41', 'b0f8549f-2ee0-451d-8a29-4cde92d20951');
+INSERT INTO `result_papers` VALUES (24, '12', '会议论文集', NULL, 2, NULL, '123', '[\"SCIE\", \"SSCI\"]', '2024-10-01 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"name\": \"\", \"rank\": null, \"identity\": \"\", \"institution\": \"\", \"coFirstAuthor\": false, \"corresponding\": false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '2024-12-24 21:26:44', '2024-12-25 00:30:41', 'b0f8549f-2ee0-451d-8a29-4cde92d20951');
+INSERT INTO `result_papers` VALUES (41, '21111111111111111', '会议论文集', NULL, 1, NULL, '2', '[\"SSCI\",\"SCIE\"]', '2024-11-21 00:00:00', NULL, NULL, NULL, NULL, NULL, '[{\"rank\":1,\"name\":\"1\",\"identity\":\"博士生\",\"institution\":\"1\",\"corresponding\":false,\"coFirstAuthor\":false}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'c25e9e9f-f056-4750-a8be-d62685fa9b26.pdf', NULL, '2024-12-24 21:26:44', '2024-12-25 00:30:41', 'b0f8549f-2ee0-451d-8a29-4cde92d20951');
 
 -- ----------------------------
 -- Table structure for result_patents
@@ -181,6 +186,7 @@ CREATE TABLE `result_patents`  (
                                    `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                    `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                    `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                   `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                    PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '专利信息表' ROW_FORMAT = Dynamic;
 
@@ -207,6 +213,7 @@ CREATE TABLE `result_personal_award`  (
                                           `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                           `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                           `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                          `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                           PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '个人获奖表' ROW_FORMAT = Dynamic;
 
@@ -236,6 +243,7 @@ CREATE TABLE `result_publication`  (
                                        `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                        `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                        `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                       `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                        PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '著作信息' ROW_FORMAT = Dynamic;
 
@@ -261,6 +269,7 @@ CREATE TABLE `result_report`  (
                                   `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                   `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                   `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                  `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '新闻报道上传表' ROW_FORMAT = Dynamic;
 
@@ -288,6 +297,7 @@ CREATE TABLE `result_student_award`  (
                                          `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
                                          `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
                                          `pdf_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                                         `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                          PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '学生获奖信息' ROW_FORMAT = Dynamic;
 
