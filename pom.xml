@@ -12,6 +12,7 @@
     <url>http://www.ruoyi.vip</url>
     <description>若依管理系统</description>
     
+
     <properties>
         <ruoyi.version>3.8.0</ruoyi.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
