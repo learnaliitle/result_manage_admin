@@ -67,6 +67,12 @@
             <artifactId>ruoyi-cms</artifactId>
         </dependency>
 
+        <!--用户模块-->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-user</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

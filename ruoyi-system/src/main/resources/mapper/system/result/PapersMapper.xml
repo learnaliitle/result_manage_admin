@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.result.PapersMapper">
+
+    <!-- 插入语句 -->
+    <insert id="savePapers" parameterType="com.ruoyi.system.domain.result_entity.Papers">
+        INSERT INTO result_papers (
+            id,
+            user_id,
+            title,
+            pdf_path,
+            paper_type,
+            research_field,
+            author_rank,
+            corresponding_author,
+            journal_name,
+            indexing,
+            publish_date,
+            doi,
+            citation_count,
+            keywords,
+            page_range,
+            project_id,
+            impact_factor,
+            volume_number,
+            issue_number,
+            issn,
+            cn_number,
+            `abstract`,
+            remarks,
+            author_info
+        ) VALUES (
+                     #{id},
+                     #{userId},
+                     #{title},
+                     #{pdfPath},
+                     #{paperType},
+                     #{researchField},
+                     #{authorRank},
+                     #{correspondingAuthor},
+                     #{journalName},
+                     #{indexing, typeHandler=com.ruoyi.system.TypeHandler.ListTypeHandler},
+                     #{publishDate},
+                     #{doi},
+                     #{citationCount},
+                     #{keywords},
+                     #{pageRange},
+                     #{projectId},
+                     #{impactFactor},
+                     #{volumeNumber},
+                     #{issueNumber},
+                     #{issn},
+                     #{cnNumber},
+                     #{abstractContent},
+                     #{remarks},
+                     #{authorInfo, typeHandler=com.ruoyi.system.TypeHandler.ListTypeHandler}
+                 )
+    </insert>
+
+    <!-- 更新语句 -->
+    <update id="updatePapers" parameterType="com.ruoyi.system.domain.result_entity.Papers">
+        UPDATE result_papers
+        SET
+            user_id = #{userId},
+            title = #{title},
+            pdf_path = #{pdfPath},
+            paper_type = #{paperType},
+            research_field = #{researchField},
+            author_rank = #{authorRank},
+            corresponding_author = #{correspondingAuthor},
+            journal_name = #{journalName},
+            indexing = #{indexing, typeHandler=com.ruoyi.system.TypeHandler.ListTypeHandler},
+            publish_date = #{publishDate},
+            doi = #{doi},
+            citation_count = #{citationCount},
+            keywords = #{keywords},
+            page_range = #{pageRange},
+            related_topic = #{relatedTopic},
+            impact_factor = #{impactFactor},
+            volume_number = #{volumeNumber},
+            issue_number = #{issueNumber},
+            issn = #{issn},
+            cn_number = #{cnNumber},
+            `abstract` = #{abstractContent},
+            remarks = #{remarks},
+            author_info = #{authorInfo, typeHandler=com.ruoyi.system.TypeHandler.ListTypeHandler}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 查询所有字段的语句 -->
+    <select id="selectPaperById" resultMap="PapersResultMap">
+        SELECT
+            id,
+            user_id,
+            title,
+            pdf_path,
+            paper_type,
+            research_field,
+            author_rank,
+            corresponding_author,
+            journal_name,
+            indexing,
+            publish_date,
+            doi,
+            citation_count,
+            keywords,
+            page_range,
+            related_topic,
+            impact_factor,
+            volume_number,
+            issue_number,
+            issn,
+            cn_number,
+            `abstract`,
+            remarks,
+            author_info
+        FROM papers
+        WHERE id = #{id}
+    </select>
+
+    <!-- Result Map 配置 -->
+    <resultMap id="PapersResultMap" type="com.ruoyi.system.domain.result_entity.Papers">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="title" column="title"/>
+        <result property="pdfPath" column="pdf_path"/>
+        <result property="paperType" column="paper_type"/>
+        <result property="researchField" column="research_field"/>
+        <result property="authorRank" column="author_rank"/>
+        <result property="correspondingAuthor" column="corresponding_author"/>
+        <result property="journalName" column="journal_name"/>
+        <result property="indexing" column="indexing" typeHandler="com.ruoyi.system.TypeHandler.ListTypeHandler"/>
+        <result property="publishDate" column="publish_date"/>
+        <result property="doi" column="doi"/>
+        <result property="citationCount" column="citation_count"/>
+        <result property="keywords" column="keywords"/>
+        <result property="pageRange" column="page_range"/>
+        <result property="projectId" column="project_id"/>
+        <result property="impactFactor" column="impact_factor"/>
+        <result property="volumeNumber" column="volume_number"/>
+        <result property="issueNumber" column="issue_number"/>
+        <result property="issn" column="issn"/>
+        <result property="cnNumber" column="cn_number"/>
+        <result property="abstractContent" column="`abstract`"/>
+        <result property="remarks" column="remarks"/>
+        <result property="authorInfo" column="author_info" typeHandler="com.ruoyi.system.TypeHandler.ListTypeHandler"/>
+    </resultMap>
+
+</mapper>

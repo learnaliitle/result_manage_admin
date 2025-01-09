@@ -49,15 +49,12 @@
           <span v-if="!loading">登 录</span>
           <span v-else>登 录 中...</span>
         </el-button>
-        <div style="float: right;" v-if="register">
-          <router-link class="link-type" :to="'/cmsRegister'">立即注册</router-link>
-        </div>
+<!--        <div style="float: right;" v-if="register">-->
+<!--          <router-link class="link-type" :to="'/cmsRegister'">立即注册</router-link>-->
+<!--        </div>-->
       </el-form-item>
     </el-form>
-    <!--  底部  -->
-    <div class="el-login-footer">
-      <span>Copyright © 2018-2021 ruoyi.vip All Rights Reserved.</span>
-    </div>
+
   </div>
 </template>
 
@@ -141,7 +138,7 @@ export default {
             Cookies.remove('rememberMe');
           }
           this.$store.dispatch("Login", this.loginForm).then(() => {
-            this.$router.push({ path: "/cms/main/cmsIndex" });
+            this.$router.push({ path: "/index" });  // 修改这里
           }).catch(() => {
             this.loading = false;
             if (this.captchaOnOff) {
@@ -151,6 +148,7 @@ export default {
         }
       });
     }
+
   }
 };
 </script>

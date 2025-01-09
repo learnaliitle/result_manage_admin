@@ -7,7 +7,7 @@
       <cmsMain></cmsMain>
     </keep-alive>
     <el-footer height="40px">
-      <cmsFooter></cmsFooter>
+
     </el-footer>
   </el-container>
 </template>
@@ -49,9 +49,7 @@
 </script>
 
 <style scoped>
-  .el-footer {
-    background-color: rgba(84, 92, 100, 0.5);
-  }
+
 
   .background {
     background-repeat: no-repeat;
