@@ -213,12 +213,6 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 用户模块 -->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-user</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
 
 
             <dependency>
@@ -240,7 +234,6 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-cms</module>
-        <module>ruoyi-user</module>
     </modules>
     <packaging>pom</packaging>
 
