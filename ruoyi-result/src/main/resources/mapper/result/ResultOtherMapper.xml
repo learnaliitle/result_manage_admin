@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.other.mapper.ResultOtherMapper">
+
+    <resultMap type="ResultOther" id="ResultOtherResult">
+        <result property="id"    column="id"    />
+        <result property="achievementName"    column="achievement_name"    />
+        <result property="authorRank"    column="author_rank"    />
+        <result property="obtainTime"    column="obtain_time"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="authorInfo"    column="author_info"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultOtherVo">
+        select id, achievement_name, author_rank, obtain_time, remarks, project_id, sync_status, author_info, created_at, updated_at, pdf_url, user_id from result_other
+    </sql>
+
+    <select id="selectResultOtherList" parameterType="ResultOther" resultMap="ResultOtherResult">
+        <include refid="selectResultOtherVo"/>
+        <where>
+            <if test="achievementName != null  and achievementName != ''"> and achievement_name like concat('%', #{achievementName}, '%')</if>
+            <if test="authorRank != null "> and author_rank = #{authorRank}</if>
+            <if test="obtainTime != null "> and obtain_time = #{obtainTime}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="authorInfo != null  and authorInfo != ''"> and author_info = #{authorInfo}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultOtherById" parameterType="Long" resultMap="ResultOtherResult">
+        <include refid="selectResultOtherVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultOther" parameterType="ResultOther" useGeneratedKeys="true" keyProperty="id">
+        insert into result_other
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="achievementName != null and achievementName != ''">achievement_name,</if>
+            <if test="authorRank != null">author_rank,</if>
+            <if test="obtainTime != null">obtain_time,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="authorInfo != null">author_info,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="achievementName != null and achievementName != ''">#{achievementName},</if>
+            <if test="authorRank != null">#{authorRank},</if>
+            <if test="obtainTime != null">#{obtainTime},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="authorInfo != null">#{authorInfo},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultOther" parameterType="ResultOther">
+        update result_other
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="achievementName != null and achievementName != ''">achievement_name = #{achievementName},</if>
+            <if test="authorRank != null">author_rank = #{authorRank},</if>
+            <if test="obtainTime != null">obtain_time = #{obtainTime},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="authorInfo != null">author_info = #{authorInfo},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultOtherById" parameterType="Long">
+        delete from result_other where id = #{id}
+    </delete>
+
+    <delete id="deleteResultOtherByIds" parameterType="String">
+        delete from result_other where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -3,9 +3,9 @@ package com.ruoyi.result.copyright.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.mapper.ResultCopyrightMapper;
-import com.ruoyi.system.domain.ResultCopyright;
-import com.ruoyi.system.service.IResultCopyrightService;
+import com.ruoyi.result.copyright.mapper.ResultCopyrightMapper;
+import com.ruoyi.result.copyright.domain.ResultCopyright;
+import com.ruoyi.result.copyright.service.IResultCopyrightService;
 
 /**
  * 软件著作权Service业务层处理

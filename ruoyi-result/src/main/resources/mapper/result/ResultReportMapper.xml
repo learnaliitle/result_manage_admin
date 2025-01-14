@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.report.mapper.ResultReportMapper">
+
+    <resultMap type="ResultReport" id="ResultReportResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="mediaName"    column="media_name"    />
+        <result property="mediaLevel"    column="media_level"    />
+        <result property="reportTime"    column="report_time"    />
+        <result property="columnSection"    column="column_section"    />
+        <result property="onlineLink"    column="online_link"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultReportVo">
+        select id, title, media_name, media_level, report_time, column_section, online_link, remarks, project_id, sync_status, created_at, updated_at, pdf_url, user_id from result_report
+    </sql>
+
+    <select id="selectResultReportList" parameterType="ResultReport" resultMap="ResultReportResult">
+        <include refid="selectResultReportVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="mediaName != null  and mediaName != ''"> and media_name like concat('%', #{mediaName}, '%')</if>
+            <if test="mediaLevel != null  and mediaLevel != ''"> and media_level = #{mediaLevel}</if>
+            <if test="reportTime != null "> and report_time = #{reportTime}</if>
+            <if test="columnSection != null  and columnSection != ''"> and column_section = #{columnSection}</if>
+            <if test="onlineLink != null  and onlineLink != ''"> and online_link = #{onlineLink}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultReportById" parameterType="Long" resultMap="ResultReportResult">
+        <include refid="selectResultReportVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultReport" parameterType="ResultReport" useGeneratedKeys="true" keyProperty="id">
+        insert into result_report
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="mediaName != null and mediaName != ''">media_name,</if>
+            <if test="mediaLevel != null and mediaLevel != ''">media_level,</if>
+            <if test="reportTime != null">report_time,</if>
+            <if test="columnSection != null">column_section,</if>
+            <if test="onlineLink != null">online_link,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="mediaName != null and mediaName != ''">#{mediaName},</if>
+            <if test="mediaLevel != null and mediaLevel != ''">#{mediaLevel},</if>
+            <if test="reportTime != null">#{reportTime},</if>
+            <if test="columnSection != null">#{columnSection},</if>
+            <if test="onlineLink != null">#{onlineLink},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultReport" parameterType="ResultReport">
+        update result_report
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="mediaName != null and mediaName != ''">media_name = #{mediaName},</if>
+            <if test="mediaLevel != null and mediaLevel != ''">media_level = #{mediaLevel},</if>
+            <if test="reportTime != null">report_time = #{reportTime},</if>
+            <if test="columnSection != null">column_section = #{columnSection},</if>
+            <if test="onlineLink != null">online_link = #{onlineLink},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultReportById" parameterType="Long">
+        delete from result_report where id = #{id}
+    </delete>
+
+    <delete id="deleteResultReportByIds" parameterType="String">
+        delete from result_report where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

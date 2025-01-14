@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.certificateinfo.mapper.ResultCertificateinfoMapper">
+
+    <resultMap type="ResultCertificateinfo" id="ResultCertificateinfoResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="certificateType"    column="certificate_type"    />
+        <result property="obtainTime"    column="obtain_time"    />
+        <result property="certificateNumber"    column="certificate_number"    />
+        <result property="issuingInstitution"    column="issuing_institution"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultCertificateinfoVo">
+        select id, title, certificate_type, obtain_time, certificate_number, issuing_institution, remarks, project_id, sync_status, created_at, updated_at, pdf_url, user_id from result_certificateinfo
+    </sql>
+
+    <select id="selectResultCertificateinfoList" parameterType="ResultCertificateinfo" resultMap="ResultCertificateinfoResult">
+        <include refid="selectResultCertificateinfoVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="certificateType != null  and certificateType != ''"> and certificate_type = #{certificateType}</if>
+            <if test="obtainTime != null "> and obtain_time = #{obtainTime}</if>
+            <if test="certificateNumber != null  and certificateNumber != ''"> and certificate_number = #{certificateNumber}</if>
+            <if test="issuingInstitution != null  and issuingInstitution != ''"> and issuing_institution = #{issuingInstitution}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultCertificateinfoById" parameterType="Long" resultMap="ResultCertificateinfoResult">
+        <include refid="selectResultCertificateinfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultCertificateinfo" parameterType="ResultCertificateinfo" useGeneratedKeys="true" keyProperty="id">
+        insert into result_certificateinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="certificateType != null and certificateType != ''">certificate_type,</if>
+            <if test="obtainTime != null">obtain_time,</if>
+            <if test="certificateNumber != null">certificate_number,</if>
+            <if test="issuingInstitution != null">issuing_institution,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="certificateType != null and certificateType != ''">#{certificateType},</if>
+            <if test="obtainTime != null">#{obtainTime},</if>
+            <if test="certificateNumber != null">#{certificateNumber},</if>
+            <if test="issuingInstitution != null">#{issuingInstitution},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultCertificateinfo" parameterType="ResultCertificateinfo">
+        update result_certificateinfo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="certificateType != null and certificateType != ''">certificate_type = #{certificateType},</if>
+            <if test="obtainTime != null">obtain_time = #{obtainTime},</if>
+            <if test="certificateNumber != null">certificate_number = #{certificateNumber},</if>
+            <if test="issuingInstitution != null">issuing_institution = #{issuingInstitution},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultCertificateinfoById" parameterType="Long">
+        delete from result_certificateinfo where id = #{id}
+    </delete>
+
+    <delete id="deleteResultCertificateinfoByIds" parameterType="String">
+        delete from result_certificateinfo where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

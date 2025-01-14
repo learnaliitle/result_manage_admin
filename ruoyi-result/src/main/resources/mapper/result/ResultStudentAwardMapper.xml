@@ -2,11 +2,12 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.result.awardPersonal.mapper.ResultPersonalAwardMapper">
+<mapper namespace="com.ruoyi.result.awardStudent.mapper.ResultStudentAwardMapper">
 
-    <resultMap type="ResultPersonalAward" id="ResultPersonalAwardResult">
+    <resultMap type="ResultStudentAward" id="ResultStudentAwardResult">
         <result property="id"    column="id"    />
-        <result property="title"    column="title"    />
+        <result property="competitionName"    column="competition_name"    />
+        <result property="awardStudents"    column="award_students"    />
         <result property="authorRank"    column="author_rank"    />
         <result property="awardLevel"    column="award_level"    />
         <result property="level"    column="level"    />
@@ -22,14 +23,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"    column="user_id"    />
     </resultMap>
 
-    <sql id="selectResultPersonalAwardVo">
-        select id, title, author_rank, award_level, level, granting_unit, award_time, remarks, project_id, author_info, sync_status, created_at, updated_at, pdf_url, user_id from result_personal_award
+    <sql id="selectResultStudentAwardVo">
+        select id, competition_name, award_students, author_rank, award_level, level, granting_unit, award_time, remarks, project_id, author_info, sync_status, created_at, updated_at, pdf_url, user_id from result_student_award
     </sql>
 
-    <select id="selectResultPersonalAwardList" parameterType="ResultPersonalAward" resultMap="ResultPersonalAwardResult">
-        <include refid="selectResultPersonalAwardVo"/>
+    <select id="selectResultStudentAwardList" parameterType="ResultStudentAward" resultMap="ResultStudentAwardResult">
+        <include refid="selectResultStudentAwardVo"/>
         <where>
-            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="competitionName != null  and competitionName != ''"> and competition_name like concat('%', #{competitionName}, '%')</if>
+            <if test="awardStudents != null  and awardStudents != ''"> and award_students = #{awardStudents}</if>
             <if test="authorRank != null "> and author_rank = #{authorRank}</if>
             <if test="awardLevel != null  and awardLevel != ''"> and award_level = #{awardLevel}</if>
             <if test="level != null  and level != ''"> and level = #{level}</if>
@@ -46,40 +48,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
 
-    <select id="selectResultPersonalAwardById" parameterType="Long" resultMap="ResultPersonalAwardResult">
-        <include refid="selectResultPersonalAwardVo"/>
+    <select id="selectResultStudentAwardById" parameterType="Long" resultMap="ResultStudentAwardResult">
+        <include refid="selectResultStudentAwardVo"/>
         where id = #{id}
     </select>
 
-    <insert id="insertResultPersonalAward" parameterType="ResultPersonalAward" useGeneratedKeys="true" keyProperty="id">
-        insert into result_personal_award
+    <insert id="insertResultStudentAward" parameterType="ResultStudentAward" useGeneratedKeys="true" keyProperty="id">
+        insert into result_student_award
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="title != null and title != ''">title,</if>
+            <if test="competitionName != null and competitionName != ''">competition_name,</if>
+            <if test="awardStudents != null and awardStudents != ''">award_students,</if>
             <if test="authorRank != null">author_rank,</if>
-            <if test="awardLevel != null">award_level,</if>
+            <if test="awardLevel != null and awardLevel != ''">award_level,</if>
             <if test="level != null and level != ''">level,</if>
             <if test="grantingUnit != null and grantingUnit != ''">granting_unit,</if>
             <if test="awardTime != null">award_time,</if>
             <if test="remarks != null">remarks,</if>
             <if test="projectId != null">project_id,</if>
             <if test="authorInfo != null">author_info,</if>
-            <if test="syncStatus != null and syncStatus != ''">sync_status,</if>
+            <if test="syncStatus != null">sync_status,</if>
             <if test="createdAt != null">created_at,</if>
             <if test="updatedAt != null">updated_at,</if>
             <if test="pdfUrl != null">pdf_url,</if>
             <if test="userId != null">user_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="title != null and title != ''">#{title},</if>
+            <if test="competitionName != null and competitionName != ''">#{competitionName},</if>
+            <if test="awardStudents != null and awardStudents != ''">#{awardStudents},</if>
             <if test="authorRank != null">#{authorRank},</if>
-            <if test="awardLevel != null">#{awardLevel},</if>
+            <if test="awardLevel != null and awardLevel != ''">#{awardLevel},</if>
             <if test="level != null and level != ''">#{level},</if>
             <if test="grantingUnit != null and grantingUnit != ''">#{grantingUnit},</if>
             <if test="awardTime != null">#{awardTime},</if>
             <if test="remarks != null">#{remarks},</if>
             <if test="projectId != null">#{projectId},</if>
             <if test="authorInfo != null">#{authorInfo},</if>
-            <if test="syncStatus != null and syncStatus != ''">#{syncStatus},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
             <if test="createdAt != null">#{createdAt},</if>
             <if test="updatedAt != null">#{updatedAt},</if>
             <if test="pdfUrl != null">#{pdfUrl},</if>
@@ -87,19 +91,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateResultPersonalAward" parameterType="ResultPersonalAward">
-        update result_personal_award
+    <update id="updateResultStudentAward" parameterType="ResultStudentAward">
+        update result_student_award
         <trim prefix="SET" suffixOverrides=",">
-            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="competitionName != null and competitionName != ''">competition_name = #{competitionName},</if>
+            <if test="awardStudents != null and awardStudents != ''">award_students = #{awardStudents},</if>
             <if test="authorRank != null">author_rank = #{authorRank},</if>
-            <if test="awardLevel != null">award_level = #{awardLevel},</if>
+            <if test="awardLevel != null and awardLevel != ''">award_level = #{awardLevel},</if>
             <if test="level != null and level != ''">level = #{level},</if>
             <if test="grantingUnit != null and grantingUnit != ''">granting_unit = #{grantingUnit},</if>
             <if test="awardTime != null">award_time = #{awardTime},</if>
             <if test="remarks != null">remarks = #{remarks},</if>
             <if test="projectId != null">project_id = #{projectId},</if>
             <if test="authorInfo != null">author_info = #{authorInfo},</if>
-            <if test="syncStatus != null and syncStatus != ''">sync_status = #{syncStatus},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
             <if test="createdAt != null">created_at = #{createdAt},</if>
             <if test="updatedAt != null">updated_at = #{updatedAt},</if>
             <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
@@ -108,12 +113,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteResultPersonalAwardById" parameterType="Long">
-        delete from result_personal_award where id = #{id}
+    <delete id="deleteResultStudentAwardById" parameterType="Long">
+        delete from result_student_award where id = #{id}
     </delete>
 
-    <delete id="deleteResultPersonalAwardByIds" parameterType="String">
-        delete from result_personal_award where id in
+    <delete id="deleteResultStudentAwardByIds" parameterType="String">
+        delete from result_student_award where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>

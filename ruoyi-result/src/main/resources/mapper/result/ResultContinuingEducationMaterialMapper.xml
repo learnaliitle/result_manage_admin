@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.material.mapper.ResultContinuingEducationMaterialMapper">
+
+    <resultMap type="ResultContinuingEducationMaterial" id="ResultContinuingEducationMaterialResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="trainingUnit"    column="training_unit"    />
+        <result property="hours"    column="hours"    />
+        <result property="score"    column="score"    />
+        <result property="obtainTime"    column="obtain_time"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultContinuingEducationMaterialVo">
+        select id, title, training_unit, hours, score, obtain_time, remarks, project_id, sync_status, created_at, updated_at, pdf_url, user_id from result_continuing_education_material
+    </sql>
+
+    <select id="selectResultContinuingEducationMaterialList" parameterType="ResultContinuingEducationMaterial" resultMap="ResultContinuingEducationMaterialResult">
+        <include refid="selectResultContinuingEducationMaterialVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="trainingUnit != null  and trainingUnit != ''"> and training_unit = #{trainingUnit}</if>
+            <if test="hours != null "> and hours = #{hours}</if>
+            <if test="score != null  and score != ''"> and score = #{score}</if>
+            <if test="obtainTime != null "> and obtain_time = #{obtainTime}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null  and projectId != ''"> and project_id = #{projectId}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultContinuingEducationMaterialById" parameterType="Long" resultMap="ResultContinuingEducationMaterialResult">
+        <include refid="selectResultContinuingEducationMaterialVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultContinuingEducationMaterial" parameterType="ResultContinuingEducationMaterial" useGeneratedKeys="true" keyProperty="id">
+        insert into result_continuing_education_material
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="trainingUnit != null and trainingUnit != ''">training_unit,</if>
+            <if test="hours != null">hours,</if>
+            <if test="score != null">score,</if>
+            <if test="obtainTime != null">obtain_time,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="trainingUnit != null and trainingUnit != ''">#{trainingUnit},</if>
+            <if test="hours != null">#{hours},</if>
+            <if test="score != null">#{score},</if>
+            <if test="obtainTime != null">#{obtainTime},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultContinuingEducationMaterial" parameterType="ResultContinuingEducationMaterial">
+        update result_continuing_education_material
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="trainingUnit != null and trainingUnit != ''">training_unit = #{trainingUnit},</if>
+            <if test="hours != null">hours = #{hours},</if>
+            <if test="score != null">score = #{score},</if>
+            <if test="obtainTime != null">obtain_time = #{obtainTime},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultContinuingEducationMaterialById" parameterType="Long">
+        delete from result_continuing_education_material where id = #{id}
+    </delete>
+
+    <delete id="deleteResultContinuingEducationMaterialByIds" parameterType="String">
+        delete from result_continuing_education_material where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
