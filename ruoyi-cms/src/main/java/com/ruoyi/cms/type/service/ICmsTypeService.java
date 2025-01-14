@@ -5,15 +5,15 @@ import com.ruoyi.cms.type.domain.CmsType;
 
 /**
  * 分类管理Service接口
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */
-public interface ICmsTypeService 
+public interface ICmsTypeService
 {
     /**
      * 查询分类管理
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 分类管理
      */
@@ -21,7 +21,7 @@ public interface ICmsTypeService
 
     /**
      * 查询分类管理列表
-     * 
+     *
      * @param cmsType 分类管理
      * @return 分类管理集合
      */
@@ -29,7 +29,7 @@ public interface ICmsTypeService
 
     /**
      * 新增分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface ICmsTypeService
 
     /**
      * 修改分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface ICmsTypeService
 
     /**
      * 批量删除分类管理
-     * 
+     *
      * @param typeIds 需要删除的分类管理主键集合
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface ICmsTypeService
 
     /**
      * 删除分类管理信息
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 结果
      */

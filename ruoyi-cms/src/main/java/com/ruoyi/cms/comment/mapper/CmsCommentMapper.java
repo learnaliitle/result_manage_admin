@@ -2,20 +2,19 @@ package com.ruoyi.cms.comment.mapper;
 
 import java.util.List;
 import com.ruoyi.cms.comment.domain.CmsComment;
-import com.ruoyi.cms.message.domain.CmsMessage;
 import org.apache.ibatis.annotations.Param;
 
 /**
  * 评论管理Mapper接口
- * 
+ *
  * @author ning
  * @date 2022-01-21
  */
-public interface CmsCommentMapper 
+public interface CmsCommentMapper
 {
     /**
      * 查询评论管理
-     * 
+     *
      * @param id 评论管理主键
      * @return 评论管理
      */
@@ -23,7 +22,7 @@ public interface CmsCommentMapper
 
     /**
      * 查询评论管理列表
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 评论管理集合
      */
@@ -38,7 +37,7 @@ public interface CmsCommentMapper
 
     /**
      * 新增评论管理
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 结果
      */
@@ -46,7 +45,7 @@ public interface CmsCommentMapper
 
     /**
      * 修改评论管理
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 结果
      */
@@ -54,7 +53,7 @@ public interface CmsCommentMapper
 
     /**
      * 删除评论管理
-     * 
+     *
      * @param id 评论管理主键
      * @return 结果
      */
@@ -62,7 +61,7 @@ public interface CmsCommentMapper
 
     /**
      * 批量删除评论管理
-     * 
+     *
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */

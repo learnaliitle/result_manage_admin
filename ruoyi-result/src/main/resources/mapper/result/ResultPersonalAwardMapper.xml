@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.award.mapper.ResultPersonalAwardMapper">
+
+    <resultMap type="ResultPersonalAward" id="ResultPersonalAwardResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="authorRank"    column="author_rank"    />
+        <result property="awardLevel"    column="award_level"    />
+        <result property="level"    column="level"    />
+        <result property="grantingUnit"    column="granting_unit"    />
+        <result property="awardTime"    column="award_time"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="authorInfo"    column="author_info"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultPersonalAwardVo">
+        select id, title, author_rank, award_level, level, granting_unit, award_time, remarks, project_id, author_info, sync_status, created_at, updated_at, pdf_url, user_id from result_personal_award
+    </sql>
+
+    <select id="selectResultPersonalAwardList" parameterType="ResultPersonalAward" resultMap="ResultPersonalAwardResult">
+        <include refid="selectResultPersonalAwardVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="authorRank != null "> and author_rank = #{authorRank}</if>
+            <if test="awardLevel != null  and awardLevel != ''"> and award_level = #{awardLevel}</if>
+            <if test="level != null  and level != ''"> and level = #{level}</if>
+            <if test="grantingUnit != null  and grantingUnit != ''"> and granting_unit = #{grantingUnit}</if>
+            <if test="awardTime != null "> and award_time = #{awardTime}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null  and projectId != ''"> and project_id = #{projectId}</if>
+            <if test="authorInfo != null  and authorInfo != ''"> and author_info = #{authorInfo}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultPersonalAwardById" parameterType="Long" resultMap="ResultPersonalAwardResult">
+        <include refid="selectResultPersonalAwardVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultPersonalAward" parameterType="ResultPersonalAward" useGeneratedKeys="true" keyProperty="id">
+        insert into result_personal_award
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="authorRank != null">author_rank,</if>
+            <if test="awardLevel != null">award_level,</if>
+            <if test="level != null and level != ''">level,</if>
+            <if test="grantingUnit != null and grantingUnit != ''">granting_unit,</if>
+            <if test="awardTime != null">award_time,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="authorInfo != null">author_info,</if>
+            <if test="syncStatus != null and syncStatus != ''">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="authorRank != null">#{authorRank},</if>
+            <if test="awardLevel != null">#{awardLevel},</if>
+            <if test="level != null and level != ''">#{level},</if>
+            <if test="grantingUnit != null and grantingUnit != ''">#{grantingUnit},</if>
+            <if test="awardTime != null">#{awardTime},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="authorInfo != null">#{authorInfo},</if>
+            <if test="syncStatus != null and syncStatus != ''">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultPersonalAward" parameterType="ResultPersonalAward">
+        update result_personal_award
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="authorRank != null">author_rank = #{authorRank},</if>
+            <if test="awardLevel != null">award_level = #{awardLevel},</if>
+            <if test="level != null and level != ''">level = #{level},</if>
+            <if test="grantingUnit != null and grantingUnit != ''">granting_unit = #{grantingUnit},</if>
+            <if test="awardTime != null">award_time = #{awardTime},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="authorInfo != null">author_info = #{authorInfo},</if>
+            <if test="syncStatus != null and syncStatus != ''">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultPersonalAwardById" parameterType="Long">
+        delete from result_personal_award where id = #{id}
+    </delete>
+
+    <delete id="deleteResultPersonalAwardByIds" parameterType="String">
+        delete from result_personal_award where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

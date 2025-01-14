@@ -16,12 +16,12 @@ import com.ruoyi.cms.message.service.ICmsMessageService;
 
 /**
  * 留言管理Service业务层处理
- * 
+ *
  * @author ning
  * @date 2022-01-15
  */
 @Service
-public class CmsMessageServiceImpl implements ICmsMessageService 
+public class CmsMessageServiceImpl implements ICmsMessageService
 {
     @Autowired
     private CmsMessageMapper cmsMessageMapper;
@@ -142,7 +142,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 查询留言管理
-     * 
+     *
      * @param id 留言管理主键
      * @return 留言管理
      */
@@ -154,7 +154,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 查询留言管理列表
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 留言管理
      */
@@ -217,7 +217,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 新增留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -237,7 +237,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 修改留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -250,7 +250,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 批量删除留言管理
-     * 
+     *
      * @param ids 需要删除的留言管理主键
      * @return 结果
      */
@@ -262,7 +262,7 @@ public class CmsMessageServiceImpl implements ICmsMessageService
 
     /**
      * 删除留言管理信息
-     * 
+     *
      * @param id 留言管理主键
      * @return 结果
      */

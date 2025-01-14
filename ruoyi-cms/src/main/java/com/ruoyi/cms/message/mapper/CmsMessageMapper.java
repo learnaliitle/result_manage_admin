@@ -6,15 +6,15 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * 留言管理Mapper接口
- * 
+ *
  * @author ning
  * @date 2022-01-15
  */
-public interface CmsMessageMapper 
+public interface CmsMessageMapper
 {
     /**
      * 查询留言管理
-     * 
+     *
      * @param id 留言管理主键
      * @return 留言管理
      */
@@ -22,7 +22,7 @@ public interface CmsMessageMapper
 
     /**
      * 查询留言管理列表
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 留言管理集合
      */
@@ -37,7 +37,7 @@ public interface CmsMessageMapper
 
     /**
      * 新增留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface CmsMessageMapper
 
     /**
      * 修改留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface CmsMessageMapper
 
     /**
      * 删除留言管理
-     * 
+     *
      * @param id 留言管理主键
      * @return 结果
      */
@@ -61,7 +61,7 @@ public interface CmsMessageMapper
 
     /**
      * 批量删除留言管理
-     * 
+     *
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */

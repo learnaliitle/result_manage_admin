@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.framework.web.service.SysPermissionService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,7 +27,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 分类管理Controller
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */

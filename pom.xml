@@ -234,6 +234,7 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-cms</module>
+        <module>ruoyi-result</module>
     </modules>
     <packaging>pom</packaging>
 

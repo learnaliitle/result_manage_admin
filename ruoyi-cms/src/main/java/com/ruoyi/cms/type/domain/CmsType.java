@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 分类管理对象 cms_type
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */
@@ -39,30 +39,30 @@ public class CmsType extends BaseEntity
     /** 博客数量 */
     private int blogNum;
 
-    public void setTypeId(Long typeId) 
+    public void setTypeId(Long typeId)
     {
         this.typeId = typeId;
     }
 
-    public Long getTypeId() 
+    public Long getTypeId()
     {
         return typeId;
     }
-    public void setTypeName(String typeName) 
+    public void setTypeName(String typeName)
     {
         this.typeName = typeName;
     }
 
-    public String getTypeName() 
+    public String getTypeName()
     {
         return typeName;
     }
-    public void setTypePic(String typePic) 
+    public void setTypePic(String typePic)
     {
         this.typePic = typePic;
     }
 
-    public String getTypePic() 
+    public String getTypePic()
     {
         return typePic;
     }

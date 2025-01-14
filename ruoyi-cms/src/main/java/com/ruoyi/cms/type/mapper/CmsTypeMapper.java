@@ -2,20 +2,19 @@ package com.ruoyi.cms.type.mapper;
 
 import java.util.List;
 
-import com.ruoyi.cms.tag.domain.CmsTag;
 import com.ruoyi.cms.type.domain.CmsType;
 
 /**
  * 分类管理Mapper接口
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */
-public interface CmsTypeMapper 
+public interface CmsTypeMapper
 {
     /**
      * 查询分类管理
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 分类管理
      */
@@ -23,7 +22,7 @@ public interface CmsTypeMapper
 
     /**
      * 查询分类管理列表
-     * 
+     *
      * @param cmsType 分类管理
      * @return 分类管理集合
      */
@@ -39,7 +38,7 @@ public interface CmsTypeMapper
 
     /**
      * 新增分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -47,7 +46,7 @@ public interface CmsTypeMapper
 
     /**
      * 修改分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -55,7 +54,7 @@ public interface CmsTypeMapper
 
     /**
      * 删除分类管理
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 结果
      */
@@ -63,7 +62,7 @@ public interface CmsTypeMapper
 
     /**
      * 批量删除分类管理
-     * 
+     *
      * @param typeIds 需要删除的数据主键集合
      * @return 结果
      */

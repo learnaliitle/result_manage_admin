@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.copyright.mapper.ResultCopyrightMapper">
+
+    <resultMap type="ResultCopyright" id="ResultCopyrightResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="certificateNo"    column="certificate_no"    />
+        <result property="authorRank"    column="author_rank"    />
+        <result property="finishTime"    column="finish_time"    />
+        <result property="puttime"    column="puttime"    />
+        <result property="registerNo"    column="register_no"    />
+        <result property="copyrightType"    column="copyright_type"    />
+        <result property="copyrightOwner"    column="copyright_owner"    />
+        <result property="description"    column="description"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="created"    column="created"    />
+        <result property="updated"    column="updated"    />
+        <result property="authorInfo"    column="author_info"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultCopyrightVo">
+        select id, title, certificate_no, author_rank, finish_time, puttime, register_no, copyright_type, copyright_owner, description, sync_status, created, updated, author_info, project_id, updated_at, pdf_url, user_id from result_copyright
+    </sql>
+
+    <select id="selectResultCopyrightList" parameterType="ResultCopyright" resultMap="ResultCopyrightResult">
+        <include refid="selectResultCopyrightVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="certificateNo != null  and certificateNo != ''"> and certificate_no = #{certificateNo}</if>
+            <if test="authorRank != null "> and author_rank = #{authorRank}</if>
+            <if test="finishTime != null "> and finish_time = #{finishTime}</if>
+            <if test="puttime != null "> and puttime = #{puttime}</if>
+            <if test="registerNo != null  and registerNo != ''"> and register_no = #{registerNo}</if>
+            <if test="copyrightType != null  and copyrightType != ''"> and copyright_type = #{copyrightType}</if>
+            <if test="copyrightOwner != null  and copyrightOwner != ''"> and copyright_owner = #{copyrightOwner}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="created != null "> and created = #{created}</if>
+            <if test="updated != null "> and updated = #{updated}</if>
+            <if test="authorInfo != null  and authorInfo != ''"> and author_info = #{authorInfo}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultCopyrightById" parameterType="Long" resultMap="ResultCopyrightResult">
+        <include refid="selectResultCopyrightVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultCopyright" parameterType="ResultCopyright" useGeneratedKeys="true" keyProperty="id">
+        insert into result_copyright
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="certificateNo != null and certificateNo != ''">certificate_no,</if>
+            <if test="authorRank != null">author_rank,</if>
+            <if test="finishTime != null">finish_time,</if>
+            <if test="puttime != null">puttime,</if>
+            <if test="registerNo != null">register_no,</if>
+            <if test="copyrightType != null and copyrightType != ''">copyright_type,</if>
+            <if test="copyrightOwner != null and copyrightOwner != ''">copyright_owner,</if>
+            <if test="description != null">description,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="created != null">created,</if>
+            <if test="updated != null">updated,</if>
+            <if test="authorInfo != null">author_info,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="certificateNo != null and certificateNo != ''">#{certificateNo},</if>
+            <if test="authorRank != null">#{authorRank},</if>
+            <if test="finishTime != null">#{finishTime},</if>
+            <if test="puttime != null">#{puttime},</if>
+            <if test="registerNo != null">#{registerNo},</if>
+            <if test="copyrightType != null and copyrightType != ''">#{copyrightType},</if>
+            <if test="copyrightOwner != null and copyrightOwner != ''">#{copyrightOwner},</if>
+            <if test="description != null">#{description},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="created != null">#{created},</if>
+            <if test="updated != null">#{updated},</if>
+            <if test="authorInfo != null">#{authorInfo},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultCopyright" parameterType="ResultCopyright">
+        update result_copyright
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="certificateNo != null and certificateNo != ''">certificate_no = #{certificateNo},</if>
+            <if test="authorRank != null">author_rank = #{authorRank},</if>
+            <if test="finishTime != null">finish_time = #{finishTime},</if>
+            <if test="puttime != null">puttime = #{puttime},</if>
+            <if test="registerNo != null">register_no = #{registerNo},</if>
+            <if test="copyrightType != null and copyrightType != ''">copyright_type = #{copyrightType},</if>
+            <if test="copyrightOwner != null and copyrightOwner != ''">copyright_owner = #{copyrightOwner},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="created != null">created = #{created},</if>
+            <if test="updated != null">updated = #{updated},</if>
+            <if test="authorInfo != null">author_info = #{authorInfo},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultCopyrightById" parameterType="Long">
+        delete from result_copyright where id = #{id}
+    </delete>
+
+    <delete id="deleteResultCopyrightByIds" parameterType="String">
+        delete from result_copyright where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

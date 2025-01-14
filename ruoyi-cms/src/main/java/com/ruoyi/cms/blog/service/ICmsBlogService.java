@@ -5,15 +5,15 @@ import com.ruoyi.cms.blog.domain.CmsBlog;
 
 /**
  * 文章管理Service接口
- * 
+ *
  * @author ning
  * @date 2022-01-01
  */
-public interface ICmsBlogService 
+public interface ICmsBlogService
 {
     /**
      * 查询文章管理
-     * 
+     *
      * @param id 文章管理主键
      * @return 文章管理
      */
@@ -21,7 +21,7 @@ public interface ICmsBlogService
 
     /**
      * 查询文章管理列表
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 文章管理集合
      */
@@ -44,7 +44,7 @@ public interface ICmsBlogService
 
     /**
      * 新增文章管理
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 结果
      */
@@ -52,7 +52,7 @@ public interface ICmsBlogService
 
     /**
      * 修改文章管理
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 结果
      */
@@ -60,7 +60,7 @@ public interface ICmsBlogService
 
     /**
      * 批量删除文章管理
-     * 
+     *
      * @param ids 需要删除的文章管理主键集合
      * @return 结果
      */
@@ -68,7 +68,7 @@ public interface ICmsBlogService
 
     /**
      * 删除文章管理信息
-     * 
+     *
      * @param id 文章管理主键
      * @return 结果
      */

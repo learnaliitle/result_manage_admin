@@ -5,7 +5,7 @@ import com.ruoyi.cms.fileInfo.domain.SysFileInfo;
 
 /**
  * 文件管理Mapper接口
- * 
+ *
  * @author ruoyi
  * @date 2021-12-29
  */
@@ -21,7 +21,7 @@ public interface SysFileInfoMapper
 
     /**
      * 查询文件管理
-     * 
+     *
      * @param fileId 文件管理主键
      * @return 文件管理
      */
@@ -29,7 +29,7 @@ public interface SysFileInfoMapper
 
     /**
      * 查询文件管理列表
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 文件管理集合
      */
@@ -37,7 +37,7 @@ public interface SysFileInfoMapper
 
     /**
      * 新增文件管理
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface SysFileInfoMapper
 
     /**
      * 修改文件管理
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface SysFileInfoMapper
 
     /**
      * 删除文件管理
-     * 
+     *
      * @param fileId 文件管理主键
      * @return 结果
      */
@@ -61,7 +61,7 @@ public interface SysFileInfoMapper
 
     /**
      * 批量删除文件管理
-     * 
+     *
      * @param fileIds 需要删除的数据主键集合
      * @return 结果
      */

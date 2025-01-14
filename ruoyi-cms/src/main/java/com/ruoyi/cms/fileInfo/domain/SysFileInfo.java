@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 文件管理对象 sys_file_info
- * 
+ *
  * @author ruoyi
  * @date 2021-12-29
  */
@@ -41,66 +41,66 @@ public class SysFileInfo extends BaseEntity
     /** 是否删除：Y-被删除，N-未删除 */
     private String delFlag;
 
-    public void setFileId(Long fileId) 
+    public void setFileId(Long fileId)
     {
         this.fileId = fileId;
     }
 
-    public Long getFileId() 
+    public Long getFileId()
     {
         return fileId;
     }
-    public void setFileOriginName(String fileOriginName) 
+    public void setFileOriginName(String fileOriginName)
     {
         this.fileOriginName = fileOriginName;
     }
 
-    public String getFileOriginName() 
+    public String getFileOriginName()
     {
         return fileOriginName;
     }
-    public void setFileSuffix(String fileSuffix) 
+    public void setFileSuffix(String fileSuffix)
     {
         this.fileSuffix = fileSuffix;
     }
 
-    public String getFileSuffix() 
+    public String getFileSuffix()
     {
         return fileSuffix;
     }
-    public void setFileSizeInfo(String fileSizeInfo) 
+    public void setFileSizeInfo(String fileSizeInfo)
     {
         this.fileSizeInfo = fileSizeInfo;
     }
 
-    public String getFileSizeInfo() 
+    public String getFileSizeInfo()
     {
         return fileSizeInfo;
     }
-    public void setFileObjectName(String fileObjectName) 
+    public void setFileObjectName(String fileObjectName)
     {
         this.fileObjectName = fileObjectName;
     }
 
-    public String getFileObjectName() 
+    public String getFileObjectName()
     {
         return fileObjectName;
     }
-    public void setFilePath(String filePath) 
+    public void setFilePath(String filePath)
     {
         this.filePath = filePath;
     }
 
-    public String getFilePath() 
+    public String getFilePath()
     {
         return filePath;
     }
-    public void setDelFlag(String delFlag) 
+    public void setDelFlag(String delFlag)
     {
         this.delFlag = delFlag;
     }
 
-    public String getDelFlag() 
+    public String getDelFlag()
     {
         return delFlag;
     }

@@ -67,7 +67,11 @@
             <artifactId>ruoyi-cms</artifactId>
         </dependency>
 
-
+        <!-- result模块 -->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-result</artifactId>
+        </dependency>
 
     </dependencies>
 

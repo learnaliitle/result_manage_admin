@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.papers.mapper.ResultPapersMapper">
+
+    <resultMap type="ResultPapers" id="ResultPapersResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="paperType"    column="paper_type"    />
+        <result property="researchField"    column="research_field"    />
+        <result property="authorRank"    column="author_rank"    />
+        <result property="correspondingAuthor"    column="corresponding_author"    />
+        <result property="journalName"    column="journal_name"    />
+        <result property="indexing"    column="indexing"    />
+        <result property="publishDate"    column="publish_date"    />
+        <result property="doi"    column="doi"    />
+        <result property="citationCount"    column="citation_count"    />
+        <result property="keywords"    column="keywords"    />
+        <result property="pageRange"    column="page_range"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="authorInfo"    column="author_info"    />
+        <result property="impactFactor"    column="impact_factor"    />
+        <result property="volumeNumber"    column="volume_number"    />
+        <result property="issueNumber"    column="issue_number"    />
+        <result property="issn"    column="issn"    />
+        <result property="cnNumber"    column="cn_number"    />
+        <result property="abstractContent"    column="abstract_content"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="pdfPath"    column="pdf_path"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultPapersVo">
+        select id, title, paper_type, research_field, author_rank, corresponding_author, journal_name, indexing, publish_date, doi, citation_count, keywords, page_range, project_id, author_info, impact_factor, volume_number, issue_number, issn, cn_number, abstract_content, remarks, pdf_path, sync_status, created_at, updated_at, user_id from result_papers
+    </sql>
+
+    <select id="selectResultPapersList" parameterType="ResultPapers" resultMap="ResultPapersResult">
+        <include refid="selectResultPapersVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="paperType != null  and paperType != ''"> and paper_type = #{paperType}</if>
+            <if test="researchField != null  and researchField != ''"> and research_field = #{researchField}</if>
+            <if test="authorRank != null "> and author_rank = #{authorRank}</if>
+            <if test="correspondingAuthor != null "> and corresponding_author = #{correspondingAuthor}</if>
+            <if test="journalName != null  and journalName != ''"> and journal_name like concat('%', #{journalName}, '%')</if>
+            <if test="indexing != null  and indexing != ''"> and indexing = #{indexing}</if>
+            <if test="publishDate != null "> and publish_date = #{publishDate}</if>
+            <if test="doi != null  and doi != ''"> and doi = #{doi}</if>
+            <if test="citationCount != null "> and citation_count = #{citationCount}</if>
+            <if test="keywords != null  and keywords != ''"> and keywords = #{keywords}</if>
+            <if test="pageRange != null  and pageRange != ''"> and page_range = #{pageRange}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="authorInfo != null  and authorInfo != ''"> and author_info = #{authorInfo}</if>
+            <if test="impactFactor != null "> and impact_factor = #{impactFactor}</if>
+            <if test="volumeNumber != null "> and volume_number = #{volumeNumber}</if>
+            <if test="issueNumber != null "> and issue_number = #{issueNumber}</if>
+            <if test="issn != null  and issn != ''"> and issn = #{issn}</if>
+            <if test="cnNumber != null  and cnNumber != ''"> and cn_number = #{cnNumber}</if>
+            <if test="abstractContent != null  and abstractContent != ''"> and abstract_content = #{abstractContent}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="pdfPath != null  and pdfPath != ''"> and pdf_path = #{pdfPath}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultPapersById" parameterType="Long" resultMap="ResultPapersResult">
+        <include refid="selectResultPapersVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultPapers" parameterType="ResultPapers" useGeneratedKeys="true" keyProperty="id">
+        insert into result_papers
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">title,</if>
+            <if test="paperType != null and paperType != ''">paper_type,</if>
+            <if test="researchField != null">research_field,</if>
+            <if test="authorRank != null">author_rank,</if>
+            <if test="correspondingAuthor != null">corresponding_author,</if>
+            <if test="journalName != null and journalName != ''">journal_name,</if>
+            <if test="indexing != null">indexing,</if>
+            <if test="publishDate != null">publish_date,</if>
+            <if test="doi != null">doi,</if>
+            <if test="citationCount != null">citation_count,</if>
+            <if test="keywords != null">keywords,</if>
+            <if test="pageRange != null">page_range,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="authorInfo != null">author_info,</if>
+            <if test="impactFactor != null">impact_factor,</if>
+            <if test="volumeNumber != null">volume_number,</if>
+            <if test="issueNumber != null">issue_number,</if>
+            <if test="issn != null">issn,</if>
+            <if test="cnNumber != null">cn_number,</if>
+            <if test="abstractContent != null">abstract_content,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="pdfPath != null">pdf_path,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="paperType != null and paperType != ''">#{paperType},</if>
+            <if test="researchField != null">#{researchField},</if>
+            <if test="authorRank != null">#{authorRank},</if>
+            <if test="correspondingAuthor != null">#{correspondingAuthor},</if>
+            <if test="journalName != null and journalName != ''">#{journalName},</if>
+            <if test="indexing != null">#{indexing},</if>
+            <if test="publishDate != null">#{publishDate},</if>
+            <if test="doi != null">#{doi},</if>
+            <if test="citationCount != null">#{citationCount},</if>
+            <if test="keywords != null">#{keywords},</if>
+            <if test="pageRange != null">#{pageRange},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="authorInfo != null">#{authorInfo},</if>
+            <if test="impactFactor != null">#{impactFactor},</if>
+            <if test="volumeNumber != null">#{volumeNumber},</if>
+            <if test="issueNumber != null">#{issueNumber},</if>
+            <if test="issn != null">#{issn},</if>
+            <if test="cnNumber != null">#{cnNumber},</if>
+            <if test="abstractContent != null">#{abstractContent},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="pdfPath != null">#{pdfPath},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultPapers" parameterType="ResultPapers">
+        update result_papers
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="paperType != null and paperType != ''">paper_type = #{paperType},</if>
+            <if test="researchField != null">research_field = #{researchField},</if>
+            <if test="authorRank != null">author_rank = #{authorRank},</if>
+            <if test="correspondingAuthor != null">corresponding_author = #{correspondingAuthor},</if>
+            <if test="journalName != null and journalName != ''">journal_name = #{journalName},</if>
+            <if test="indexing != null">indexing = #{indexing},</if>
+            <if test="publishDate != null">publish_date = #{publishDate},</if>
+            <if test="doi != null">doi = #{doi},</if>
+            <if test="citationCount != null">citation_count = #{citationCount},</if>
+            <if test="keywords != null">keywords = #{keywords},</if>
+            <if test="pageRange != null">page_range = #{pageRange},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="authorInfo != null">author_info = #{authorInfo},</if>
+            <if test="impactFactor != null">impact_factor = #{impactFactor},</if>
+            <if test="volumeNumber != null">volume_number = #{volumeNumber},</if>
+            <if test="issueNumber != null">issue_number = #{issueNumber},</if>
+            <if test="issn != null">issn = #{issn},</if>
+            <if test="cnNumber != null">cn_number = #{cnNumber},</if>
+            <if test="abstractContent != null">abstract_content = #{abstractContent},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="pdfPath != null">pdf_path = #{pdfPath},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultPapersById" parameterType="Long">
+        delete from result_papers where id = #{id}
+    </delete>
+
+    <delete id="deleteResultPapersByIds" parameterType="String">
+        delete from result_papers where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

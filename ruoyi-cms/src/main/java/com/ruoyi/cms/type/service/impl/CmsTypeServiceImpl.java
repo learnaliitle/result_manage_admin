@@ -14,12 +14,12 @@ import com.ruoyi.cms.type.service.ICmsTypeService;
 
 /**
  * 分类管理Service业务层处理
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */
 @Service
-public class CmsTypeServiceImpl implements ICmsTypeService 
+public class CmsTypeServiceImpl implements ICmsTypeService
 {
     @Autowired
     private CmsTypeMapper cmsTypeMapper;
@@ -32,7 +32,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 查询分类管理
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 分类管理
      */
@@ -44,7 +44,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 查询分类管理列表
-     * 
+     *
      * @param cmsType 分类管理
      * @return 分类管理
      */
@@ -61,7 +61,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 新增分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -78,7 +78,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 修改分类管理
-     * 
+     *
      * @param cmsType 分类管理
      * @return 结果
      */
@@ -105,7 +105,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 批量删除分类管理
-     * 
+     *
      * @param typeIds 需要删除的分类管理主键
      * @return 结果
      */
@@ -127,7 +127,7 @@ public class CmsTypeServiceImpl implements ICmsTypeService
 
     /**
      * 删除分类管理信息
-     * 
+     *
      * @param typeId 分类管理主键
      * @return 结果
      */

@@ -20,12 +20,12 @@ import com.ruoyi.cms.blog.service.ICmsBlogService;
 
 /**
  * 文章管理Service业务层处理
- * 
+ *
  * @author ning
  * @date 2022-01-01
  */
 @Service
-public class CmsBlogServiceImpl implements ICmsBlogService 
+public class CmsBlogServiceImpl implements ICmsBlogService
 {
     @Autowired
     private CmsBlogMapper cmsBlogMapper;
@@ -44,7 +44,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 查询文章管理
-     * 
+     *
      * @param id 文章管理主键
      * @return 文章管理
      */
@@ -83,7 +83,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 查询文章管理列表
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 文章管理
      */
@@ -127,7 +127,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 新增文章管理
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 结果
      */
@@ -166,7 +166,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 修改文章管理
-     * 
+     *
      * @param cmsBlog 文章管理
      * @return 结果
      */
@@ -208,7 +208,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 批量删除文章管理
-     * 
+     *
      * @param ids 需要删除的文章管理主键
      * @return 结果
      */
@@ -226,7 +226,7 @@ public class CmsBlogServiceImpl implements ICmsBlogService
 
     /**
      * 删除文章管理信息
-     * 
+     *
      * @param id 文章管理主键
      * @return 结果
      */

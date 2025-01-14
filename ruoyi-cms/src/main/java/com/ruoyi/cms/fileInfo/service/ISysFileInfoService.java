@@ -5,11 +5,11 @@ import com.ruoyi.cms.fileInfo.domain.SysFileInfo;
 
 /**
  * 文件管理Service接口
- * 
+ *
  * @author ruoyi
  * @date 2021-12-29
  */
-public interface ISysFileInfoService 
+public interface ISysFileInfoService
 {
     /**
      * 查询文件管理
@@ -20,7 +20,7 @@ public interface ISysFileInfoService
     public SysFileInfo selectSysFileInfoByFileObjectName(String fileObjectName);
     /**
      * 查询文件管理
-     * 
+     *
      * @param fileId 文件管理主键
      * @return 文件管理
      */
@@ -28,7 +28,7 @@ public interface ISysFileInfoService
 
     /**
      * 查询文件管理列表
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 文件管理集合
      */
@@ -36,7 +36,7 @@ public interface ISysFileInfoService
 
     /**
      * 新增文件管理
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 结果
      */
@@ -44,7 +44,7 @@ public interface ISysFileInfoService
 
     /**
      * 修改文件管理
-     * 
+     *
      * @param sysFileInfo 文件管理
      * @return 结果
      */
@@ -52,7 +52,7 @@ public interface ISysFileInfoService
 
     /**
      * 批量删除文件管理
-     * 
+     *
      * @param fileIds 需要删除的文件管理主键集合
      * @return 结果
      */
@@ -60,7 +60,7 @@ public interface ISysFileInfoService
 
     /**
      * 删除文件管理信息
-     * 
+     *
      * @param fileId 文件管理主键
      * @return 结果
      */

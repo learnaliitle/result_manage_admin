@@ -9,7 +9,6 @@ import com.ruoyi.cms.comment.domain.CmsCommentLike;
 import com.ruoyi.cms.comment.mapper.CmsCommentLikeMapper;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +18,12 @@ import com.ruoyi.cms.comment.service.ICmsCommentService;
 
 /**
  * 评论管理Service业务层处理
- * 
+ *
  * @author ning
  * @date 2022-01-21
  */
 @Service
-public class CmsCommentServiceImpl implements ICmsCommentService 
+public class CmsCommentServiceImpl implements ICmsCommentService
 {
     @Autowired
     private CmsCommentMapper cmsCommentMapper;
@@ -149,7 +148,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 查询评论管理
-     * 
+     *
      * @param id 评论管理主键
      * @return 评论管理
      */
@@ -161,7 +160,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 查询评论管理列表
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 评论管理
      */
@@ -230,7 +229,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 新增评论管理
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 结果
      */
@@ -250,7 +249,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 修改评论管理
-     * 
+     *
      * @param cmsComment 评论管理
      * @return 结果
      */
@@ -263,7 +262,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 批量删除评论管理
-     * 
+     *
      * @param ids 需要删除的评论管理主键
      * @return 结果
      */
@@ -275,7 +274,7 @@ public class CmsCommentServiceImpl implements ICmsCommentService
 
     /**
      * 删除评论管理信息
-     * 
+     *
      * @param id 评论管理主键
      * @return 结果
      */

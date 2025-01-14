@@ -20,7 +20,7 @@ import com.ruoyi.framework.security.handle.LogoutSuccessHandlerImpl;
 
 /**
  * spring security配置
- * 
+ *
  * @author ruoyi
  */
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      */
     @Autowired
     private UserDetailsService userDetailsService;
-    
+
     /**
      * 认证失败处理类
      */
@@ -49,13 +49,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      */
     @Autowired
     private JwtAuthenticationTokenFilter authenticationTokenFilter;
-    
+
     /**
      * 跨域过滤器
      */
     @Autowired
     private CorsFilter corsFilter;
-    
+
     /**
      * 解决 无法直接注入 AuthenticationManager
      *
@@ -102,6 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 // 首页获取文章信息 允许匿名访问
                 .antMatchers("/cms/blog/cms/**").permitAll()
                 // 首页获取留言,评论信息 允许匿名访问
+                .antMatchers("/result/**").permitAll()
                 .antMatchers("/cms/message/cms/**","/cms/comment/cms/**").permitAll()
                 .antMatchers(
                         HttpMethod.GET,

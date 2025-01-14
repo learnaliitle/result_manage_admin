@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.result.patents.mapper.ResultPatentsMapper">
+
+    <resultMap type="ResultPatents" id="ResultPatentsResult">
+        <result property="id"    column="id"    />
+        <result property="patentTitle"    column="patent_title"    />
+        <result property="patentType"    column="patent_type"    />
+        <result property="patentStatus"    column="patent_status"    />
+        <result property="patentNumber"    column="patent_number"    />
+        <result property="patentOwner"    column="patent_owner"    />
+        <result property="authorizationDate"    column="authorization_date"    />
+        <result property="applicationNumber"    column="application_number"    />
+        <result property="applicationDate"    column="application_date"    />
+        <result property="authorRank"    column="author_rank"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="authorInfo"    column="author_info"    />
+        <result property="syncStatus"    column="sync_status"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="pdfUrl"    column="pdf_url"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectResultPatentsVo">
+        select id, patent_title, patent_type, patent_status, patent_number, patent_owner, authorization_date, application_number, application_date, author_rank, remarks, project_id, author_info, sync_status, created_at, updated_at, pdf_url, user_id from result_patents
+    </sql>
+
+    <select id="selectResultPatentsList" parameterType="ResultPatents" resultMap="ResultPatentsResult">
+        <include refid="selectResultPatentsVo"/>
+        <where>
+            <if test="patentTitle != null  and patentTitle != ''"> and patent_title = #{patentTitle}</if>
+            <if test="patentType != null  and patentType != ''"> and patent_type = #{patentType}</if>
+            <if test="patentStatus != null  and patentStatus != ''"> and patent_status = #{patentStatus}</if>
+            <if test="patentNumber != null  and patentNumber != ''"> and patent_number = #{patentNumber}</if>
+            <if test="patentOwner != null  and patentOwner != ''"> and patent_owner = #{patentOwner}</if>
+            <if test="authorizationDate != null "> and authorization_date = #{authorizationDate}</if>
+            <if test="applicationNumber != null  and applicationNumber != ''"> and application_number = #{applicationNumber}</if>
+            <if test="applicationDate != null "> and application_date = #{applicationDate}</if>
+            <if test="authorRank != null "> and author_rank = #{authorRank}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="authorInfo != null  and authorInfo != ''"> and author_info = #{authorInfo}</if>
+            <if test="syncStatus != null  and syncStatus != ''"> and sync_status = #{syncStatus}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+            <if test="updatedAt != null "> and updated_at = #{updatedAt}</if>
+            <if test="pdfUrl != null  and pdfUrl != ''"> and pdf_url = #{pdfUrl}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectResultPatentsById" parameterType="Long" resultMap="ResultPatentsResult">
+        <include refid="selectResultPatentsVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertResultPatents" parameterType="ResultPatents" useGeneratedKeys="true" keyProperty="id">
+        insert into result_patents
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="patentTitle != null and patentTitle != ''">patent_title,</if>
+            <if test="patentType != null and patentType != ''">patent_type,</if>
+            <if test="patentStatus != null and patentStatus != ''">patent_status,</if>
+            <if test="patentNumber != null">patent_number,</if>
+            <if test="patentOwner != null">patent_owner,</if>
+            <if test="authorizationDate != null">authorization_date,</if>
+            <if test="applicationNumber != null">application_number,</if>
+            <if test="applicationDate != null">application_date,</if>
+            <if test="authorRank != null">author_rank,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="projectId != null">project_id,</if>
+            <if test="authorInfo != null">author_info,</if>
+            <if test="syncStatus != null">sync_status,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="pdfUrl != null">pdf_url,</if>
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="patentTitle != null and patentTitle != ''">#{patentTitle},</if>
+            <if test="patentType != null and patentType != ''">#{patentType},</if>
+            <if test="patentStatus != null and patentStatus != ''">#{patentStatus},</if>
+            <if test="patentNumber != null">#{patentNumber},</if>
+            <if test="patentOwner != null">#{patentOwner},</if>
+            <if test="authorizationDate != null">#{authorizationDate},</if>
+            <if test="applicationNumber != null">#{applicationNumber},</if>
+            <if test="applicationDate != null">#{applicationDate},</if>
+            <if test="authorRank != null">#{authorRank},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="projectId != null">#{projectId},</if>
+            <if test="authorInfo != null">#{authorInfo},</if>
+            <if test="syncStatus != null">#{syncStatus},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="pdfUrl != null">#{pdfUrl},</if>
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResultPatents" parameterType="ResultPatents">
+        update result_patents
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="patentTitle != null and patentTitle != ''">patent_title = #{patentTitle},</if>
+            <if test="patentType != null and patentType != ''">patent_type = #{patentType},</if>
+            <if test="patentStatus != null and patentStatus != ''">patent_status = #{patentStatus},</if>
+            <if test="patentNumber != null">patent_number = #{patentNumber},</if>
+            <if test="patentOwner != null">patent_owner = #{patentOwner},</if>
+            <if test="authorizationDate != null">authorization_date = #{authorizationDate},</if>
+            <if test="applicationNumber != null">application_number = #{applicationNumber},</if>
+            <if test="applicationDate != null">application_date = #{applicationDate},</if>
+            <if test="authorRank != null">author_rank = #{authorRank},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="projectId != null">project_id = #{projectId},</if>
+            <if test="authorInfo != null">author_info = #{authorInfo},</if>
+            <if test="syncStatus != null">sync_status = #{syncStatus},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="pdfUrl != null">pdf_url = #{pdfUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResultPatentsById" parameterType="Long">
+        delete from result_patents where id = #{id}
+    </delete>
+
+    <delete id="deleteResultPatentsByIds" parameterType="String">
+        delete from result_patents where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -25,6 +25,12 @@
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-framework</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-result</artifactId>
+            <version>3.8.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 

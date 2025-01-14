@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 留言管理对象 cms_message
- * 
+ *
  * @author ning
  * @date 2022-01-15
  */
@@ -64,25 +64,25 @@ public class CmsMessage extends BaseEntity
     /** 点赞 */
     private boolean isLike;
 
-    public void setId(Long id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
-    public void setParentId(Long parentId) 
+    public void setParentId(Long parentId)
     {
         this.parentId = parentId;
     }
 
-    public Long getParentId() 
+    public Long getParentId()
     {
         return parentId;
     }
-    public void setLikeNum(Long likeNum) 
+    public void setLikeNum(Long likeNum)
     {
         this.likeNum = likeNum;
     }
@@ -99,39 +99,39 @@ public class CmsMessage extends BaseEntity
     {
         return likeNum;
     }
-    public void setContent(String content) 
+    public void setContent(String content)
     {
         this.content = content;
     }
 
-    public String getContent() 
+    public String getContent()
     {
         return content;
     }
-    public void setType(String type) 
+    public void setType(String type)
     {
         this.type = type;
     }
 
-    public String getType() 
+    public String getType()
     {
         return type;
     }
-    public void setBlogId(Long blogId) 
+    public void setBlogId(Long blogId)
     {
         this.blogId = blogId;
     }
 
-    public Long getBlogId() 
+    public Long getBlogId()
     {
         return blogId;
     }
-    public void setUserId(Long userId) 
+    public void setUserId(Long userId)
     {
         this.userId = userId;
     }
 
-    public Long getUserId() 
+    public Long getUserId()
     {
         return userId;
     }

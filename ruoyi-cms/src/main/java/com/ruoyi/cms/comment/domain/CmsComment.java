@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 评论管理对象 cms_comment
- * 
+ *
  * @author ning
  * @date 2022-01-21
  */
@@ -66,84 +66,84 @@ public class CmsComment extends BaseEntity
     /** 点赞 */
     private boolean isLike;
 
-    public void setId(Long id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
-    public void setParentId(Long parentId) 
+    public void setParentId(Long parentId)
     {
         this.parentId = parentId;
     }
 
-    public Long getParentId() 
+    public Long getParentId()
     {
         return parentId;
     }
-    public void setMainId(Long mainId) 
+    public void setMainId(Long mainId)
     {
         this.mainId = mainId;
     }
 
-    public Long getMainId() 
+    public Long getMainId()
     {
         return mainId;
     }
-    public void setLikeNum(Long likeNum) 
+    public void setLikeNum(Long likeNum)
     {
         this.likeNum = likeNum;
     }
 
-    public Long getLikeNum() 
+    public Long getLikeNum()
     {
         return likeNum;
     }
-    public void setContent(String content) 
+    public void setContent(String content)
     {
         this.content = content;
     }
 
-    public String getContent() 
+    public String getContent()
     {
         return content;
     }
-    public void setType(String type) 
+    public void setType(String type)
     {
         this.type = type;
     }
 
-    public String getType() 
+    public String getType()
     {
         return type;
     }
-    public void setBlogId(Long blogId) 
+    public void setBlogId(Long blogId)
     {
         this.blogId = blogId;
     }
 
-    public Long getBlogId() 
+    public Long getBlogId()
     {
         return blogId;
     }
-    public void setDelFlag(String delFlag) 
+    public void setDelFlag(String delFlag)
     {
         this.delFlag = delFlag;
     }
 
-    public String getDelFlag() 
+    public String getDelFlag()
     {
         return delFlag;
     }
-    public void setUserId(Long userId) 
+    public void setUserId(Long userId)
     {
         this.userId = userId;
     }
 
-    public Long getUserId() 
+    public Long getUserId()
     {
         return userId;
     }

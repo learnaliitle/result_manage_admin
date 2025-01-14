@@ -7,7 +7,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 标签管理对象 cms_tag
- * 
+ *
  * @author ning
  * @date 2022-01-02
  */
@@ -25,21 +25,21 @@ public class CmsTag extends BaseEntity
     /** 博客数量 */
     private int blogNum;
 
-    public void setTagId(Long tagId) 
+    public void setTagId(Long tagId)
     {
         this.tagId = tagId;
     }
 
-    public Long getTagId() 
+    public Long getTagId()
     {
         return tagId;
     }
-    public void setTagName(String tagName) 
+    public void setTagName(String tagName)
     {
         this.tagName = tagName;
     }
 
-    public String getTagName() 
+    public String getTagName()
     {
         return tagName;
     }

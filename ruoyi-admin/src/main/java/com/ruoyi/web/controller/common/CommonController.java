@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * 通用请求处理
- * 
+ *
  * @author ruoyi
  */
 @RestController
@@ -44,7 +44,7 @@ public class CommonController
 
     /**
      * 通用下载请求
-     * 
+     *
      * @param fileName 文件名称
      * @param delete 是否删除
      */

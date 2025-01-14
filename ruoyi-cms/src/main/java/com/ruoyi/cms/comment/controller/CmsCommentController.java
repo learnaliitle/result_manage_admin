@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.cms.comment.domain.CmsCommentLike;
-import com.ruoyi.cms.message.domain.CmsMessage;
-import com.ruoyi.cms.message.domain.CmsMessageLike;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.framework.web.service.SysPermissionService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,7 +28,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 评论管理Controller
- * 
+ *
  * @author ning
  * @date 2022-01-21
  */

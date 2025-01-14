@@ -6,11 +6,11 @@ import com.ruoyi.cms.message.domain.CmsMessageLike;
 
 /**
  * 留言管理Service接口
- * 
+ *
  * @author ning
  * @date 2022-01-15
  */
-public interface ICmsMessageService 
+public interface ICmsMessageService
 {
     /**
      * 首页查询留言列表
@@ -29,7 +29,7 @@ public interface ICmsMessageService
 
     /**
      * 查询留言管理
-     * 
+     *
      * @param id 留言管理主键
      * @return 留言管理
      */
@@ -37,7 +37,7 @@ public interface ICmsMessageService
 
     /**
      * 查询留言管理列表
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 留言管理集合
      */
@@ -45,7 +45,7 @@ public interface ICmsMessageService
 
     /**
      * 新增留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface ICmsMessageService
 
     /**
      * 修改留言管理
-     * 
+     *
      * @param cmsMessage 留言管理
      * @return 结果
      */
@@ -61,7 +61,7 @@ public interface ICmsMessageService
 
     /**
      * 批量删除留言管理
-     * 
+     *
      * @param ids 需要删除的留言管理主键集合
      * @return 结果
      */
@@ -69,7 +69,7 @@ public interface ICmsMessageService
 
     /**
      * 删除留言管理信息
-     * 
+     *
      * @param id 留言管理主键
      * @return 结果
      */
