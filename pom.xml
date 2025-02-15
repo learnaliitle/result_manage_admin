@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ruoyi</groupId>
     <artifactId>ruoyi</artifactId>
@@ -23,7 +23,7 @@
         <swagger.version>3.0.0</swagger.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <mybatis-spring-boot.version>2.2.0</mybatis-spring-boot.version>
-        <pagehelper.boot.version>1.4.0</pagehelper.boot.version>
+        <pagehelper.boot.version>1.4.5</pagehelper.boot.version> <!-- 统一版本 -->
         <fastjson.version>1.2.78</fastjson.version>
         <oshi.version>5.8.2</oshi.version>
         <jna.version>5.9.0</jna.version>
@@ -33,14 +33,13 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
-        <lombok.version>1.8.30</lombok.version>
-
+        <lombok.version>1.18.30</lombok.version>
+        <mybatis-plus.boot.version>3.5.2</mybatis-plus.boot.version> <!-- 统一版本 -->
     </properties>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
         <dependencies>
-
             <!-- SpringBoot的依赖配置-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -152,16 +151,18 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!-- Token生成与解析-->
+            <!-- Token生成与解析 -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jwt.version}</version>
             </dependency>
-            <!-- Token生成与解析-->
+
+            <!-- Lombok 依赖 -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!-- 验证码 -->
@@ -171,35 +172,35 @@
                 <version>${kaptcha.version}</version>
             </dependency>
 
-            <!-- 定时任务-->
+            <!-- 定时任务 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-quartz</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 代码生成-->
+            <!-- 代码生成 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-generator</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 核心模块-->
+            <!-- 核心模块 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-framework</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 系统模块-->
+            <!-- 系统模块 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-system</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 通用工具-->
+            <!-- 通用工具 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-common</artifactId>
@@ -213,16 +214,19 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
-
-
+            <!-- 结果模块 -->
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-result</artifactId>
+                <version>${ruoyi.version}</version>
             </dependency>
 
-
-
+            <!-- MyBatis Plus Starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.boot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -238,13 +242,12 @@
     </modules>
     <packaging>pom</packaging>
 
-
     <dependencies>
         <!-- Lombok 依赖 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
@@ -292,5 +295,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
